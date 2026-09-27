@@ -921,7 +921,19 @@
                         message: formData.get('message')
                     })
                 })
-                .then(response => response.json())
+                .then(response => {
+                    // Static hosts (GitHub Pages, Netlify, S3) do not execute PHP.
+                    // They return the raw send-sms.php source instead of JSON, so
+                    // detect that and route the visitor to WhatsApp or phone
+                    // rather than failing with a parse error.
+                    const type = response.headers.get('content-type') || '';
+                    if (!type.includes('application/json')) {
+                        const err = new Error('NO_BACKEND');
+                        err.name = 'NoBackendError';
+                        throw err;
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     if (data.success) {
                         // Show success message
@@ -952,6 +964,36 @@
                 })
                 .catch(error => {
                     console.error('Contact form error:', error);
+
+                    // No PHP on this host: hand the inquiry to WhatsApp, prefilled,
+                    // so the visitor still reaches us in one tap.
+                    if (error.name === 'NoBackendError') {
+                        const lines = [
+                            'New Property Inquiry - Badshah Property',
+                            '',
+                            'Name: ' + (formData.get('name') || ''),
+                            'Phone: ' + (formData.get('phone') || ''),
+                            'Email: ' + (formData.get('email') || 'Not provided'),
+                            'Area: ' + (formData.get('area') || 'Not specified'),
+                            'Interested in: ' + (formData.get('interest') || 'Not specified'),
+                            'Budget: ' + (formData.get('budget') || 'Not specified'),
+                            'Message: ' + (formData.get('message') || '')
+                        ];
+                        const waLink = 'https://wa.me/919893372352?text=' +
+                            encodeURIComponent(lines.join('\n'));
+
+                        formStatus.className = 'mt-4 text-center text-green-700';
+                        formStatus.innerHTML =
+                            '<i class="fab fa-whatsapp mr-2"></i>' +
+                            'Your details are ready to send.' +
+                            '<br><a href="' + waLink + '" target="_blank" rel="noopener" ' +
+                            'class="inline-block mt-2 bg-green-700 hover:bg-green-800 text-white ' +
+                            'px-5 py-2 rounded-md font-semibold">Send on WhatsApp</a>' +
+                            '<br><small class="text-gray-600">Or call us at ' +
+                            '<a class="underline" href="tel:+919893372352">+91 9893372352</a></small>';
+                        return;
+                    }
+
                     formStatus.className = 'mt-4 text-center text-red-600';
 
                     // "Failed to fetch" means the request never reached the server
@@ -963,7 +1005,8 @@
                         : error.message;
 
                     formStatus.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i>' +
-                        'Could not send your message. Please call us directly at 9893372352' +
+                        'Could not send your message. Please call us directly at ' +
+                        '<a class="underline" href="tel:+919893372352">9893372352</a>' +
                         '<br><small>' + detail + '</small>';
                 });
             });
