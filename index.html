@@ -75,7 +75,9 @@
         .agri-texture-dark {
             background-image: url('images/agri-texture.svg');
             background-repeat: repeat;
-            background-size: 220px 220px;
+            /* Large, sparse motifs: a big tile keeps them feeling like
+               architectural line art rather than a busy pattern. */
+            background-size: 640px 640px;
         }
         .agri-texture-dark {
             background-image: url('images/agri-texture-light.svg');
@@ -143,7 +145,10 @@
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--bp-amber);
+            /* Deeper amber than the buttons: this text sits directly on the
+               textured surface, where a motif stroke darkens the background and
+               amber-700 would fall to 4.16:1. */
+            color: var(--bp-amber-deep);
             margin-bottom: 0.5rem;
         }
         .section-title {
