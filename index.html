@@ -64,6 +64,37 @@
         .agri-orange { background-color: #d2691e; }
         .agri-earth { background-color: #8b7355; }
         .agri-cream { background-color: #f5f5dc; }
+
+        /* ---- Agricultural background texture ----
+           A tileable SVG of wheat, leaves, sprouts and furrows, layered over each
+           section's existing colour. The motifs carry their own low opacity inside
+           the SVG, so nothing here dims the section content itself.
+           .agri-texture      -> dark motifs, for light surfaces
+           .agri-texture-dark -> light motifs, for the dark green sections */
+        .agri-texture,
+        .agri-texture-dark {
+            background-image: url('images/agri-texture.svg');
+            background-repeat: repeat;
+            background-size: 220px 220px;
+        }
+        .agri-texture-dark {
+            background-image: url('images/agri-texture-light.svg');
+        }
+
+        /* Sections that set their own colour need the texture composited on top of
+           it, since background-image and background-color share one element. */
+        .agri-cream.agri-texture {
+            background-color: #f5f5dc;
+        }
+        .agri-green.agri-texture-dark {
+            background-color: #2d5016;
+        }
+
+        /* Respect users who ask for reduced motion/visual noise. */
+        @media (prefers-reduced-transparency: reduce) {
+            .agri-texture,
+            .agri-texture-dark { background-image: none; }
+        }
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(139, 92, 0, 0.4);
@@ -97,7 +128,7 @@
         }
     </style>
 </head>
-<body class="bg-amber-50 text-gray-800">
+<body class="bg-amber-50 text-gray-800 agri-texture">
     <!-- Navigation -->
     <nav class="nav-bar text-green-900 shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -225,7 +256,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-4 relative overflow-hidden">
+    <section id="about" class="py-20 px-4 relative overflow-hidden agri-texture">
         <!-- Background Map -->
         <div class="absolute inset-0 z-0">
             <img src="images/dewas-map.jpg" alt="Dewas Map Background" class="w-full h-full object-cover opacity-20">
@@ -265,7 +296,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 agri-cream">
+    <section id="services" class="py-20 agri-cream agri-texture">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Our Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -309,7 +340,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-white">
+    <section id="gallery" class="py-20 bg-white agri-texture">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Our Property Gallery</h2>
             <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Explore our diverse portfolio of agricultural lands, residential plots, and commercial properties across the Indore to Bhopal region.</p>
@@ -401,7 +432,7 @@
     </section>
 
     <!-- Listings Section -->
-    <section id="listings" class="py-20 px-4 max-w-7xl mx-auto agri-cream">
+    <section id="listings" class="py-20 px-4 max-w-7xl mx-auto agri-cream agri-texture">
         <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Best Properties for Investment</h2>
         <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Discover our handpicked selection of premium properties with excellent growth potential and investment returns.</p>
         
@@ -484,7 +515,7 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-20 bg-amber-50">
+    <section class="py-20 bg-amber-50 agri-texture">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-green-800 mb-12">What Our Clients Say</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -555,7 +586,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 agri-green text-white">
+    <section id="contact" class="py-20 agri-green text-white agri-texture-dark">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col md:flex-row gap-12">
                 <div class="md:w-1/2">
@@ -669,7 +700,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="agri-green text-white py-12">
+    <footer class="agri-green text-white py-12 agri-texture-dark">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Badshah Property - agricultural background texture (dark motifs).
+  Tileable 220x220. Motifs are kept clear of the tile edges so it repeats
+  seamlessly. Intended for light surfaces; see agri-texture-light.svg for the
+  inverse used on the dark green sections.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220">
+  <g fill="none" stroke="#2d5016" stroke-opacity="0.13" stroke-width="1.6"
+     stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Wheat stalk -->
+    <g transform="translate(32 18)">
+      <path d="M8 62 L8 6"/>
+      <path d="M8 14 C2 12 0 7 1 2   M8 14 C14 12 16 7 15 2"/>
+      <path d="M8 24 C2 22 0 17 1 12  M8 24 C14 22 16 17 15 12"/>
+      <path d="M8 34 C2 32 0 27 1 22  M8 34 C14 32 16 27 15 22"/>
+      <path d="M8 44 C2 42 0 37 1 32  M8 44 C14 42 16 37 15 32"/>
+    </g>
+
+    <!-- Single leaf with midrib -->
+    <g transform="translate(120 30) rotate(18)">
+      <path d="M0 14 C6 0 22 0 30 8 C22 20 8 22 0 14 Z"/>
+      <path d="M2 14 L27 9"/>
+    </g>
+
+    <!-- Seedling / sprout -->
+    <g transform="translate(158 126)">
+      <path d="M12 30 L12 12"/>
+      <path d="M12 16 C4 16 0 10 1 4 C8 4 12 9 12 16 Z"/>
+      <path d="M12 16 C20 16 24 10 23 4 C16 4 12 9 12 16 Z"/>
+    </g>
+
+    <!-- Water droplet -->
+    <g transform="translate(64 120)">
+      <path d="M9 1 C14 8 18 12 18 17 A9 9 0 0 1 0 17 C0 12 4 8 9 1 Z"/>
+    </g>
+
+    <!-- Ploughed field furrows -->
+    <g transform="translate(92 176)">
+      <path d="M0 10 C12 2 30 2 42 10"/>
+      <path d="M2 17 C14 9 32 9 44 17"/>
+    </g>
+
+    <!-- Grain ear, small, lower left -->
+    <g transform="translate(18 148)">
+      <path d="M6 26 L6 8"/>
+      <path d="M6 12 C1 11 0 6 1 3  M6 12 C11 11 12 6 11 3"/>
+      <path d="M6 20 C1 19 0 14 1 11 M6 20 C11 19 12 14 11 11"/>
+    </g>
+
+    <!-- Sun arc, upper right -->
+    <g transform="translate(176 26)">
+      <circle cx="14" cy="14" r="8"/>
+      <path d="M14 0 L14 3  M14 25 L14 28  M0 14 L3 14  M25 14 L28 14"/>
+    </g>
+  </g>
+</svg>
