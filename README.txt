@@ -8,9 +8,9 @@ BADSHAH PROPERTY - IMPORTANT SETUP INSTRUCTIONS
 This error occurs when opening the HTML file directly from file explorer.
 
 WRONG WAY (This causes the error):
-❌ Double-clicking Index.html
-❌ Opening from: C:\wamp64\www\Badshah Property\Index.html
-❌ Browser shows: file:///C:/wamp64/www/Badshah%20Property/Index.html
+❌ Double-clicking index.html
+❌ Opening from: C:\wamp64\www\Badshah Property\index.html
+❌ Browser shows: file:///C:/wamp64/www/Badshah%20Property/index.html
 
 ================================================================
 ✅ CORRECT WAY TO OPEN YOUR WEBSITE:
@@ -22,11 +22,11 @@ WRONG WAY (This causes the error):
    - If orange/yellow, click "Start All Services"
 
 2. OPEN IN BROWSER USING LOCALHOST:
-   http://localhost/Badshah Property/Index.html
+   http://localhost/Badshah Property/index.html
    
    OR
    
-   http://127.0.0.1/Badshah Property/Index.html
+   http://127.0.0.1/Badshah Property/index.html
 
 3. Now the contact form will work and send SMS!
 
@@ -39,7 +39,7 @@ STEP-BY-STEP TO FIX YOUR ERROR:
 2. ✅ Open browser (Chrome, Firefox, Edge)
 
 3. ✅ Type in address bar:
-   http://localhost/Badshah Property/Index.html
+   http://localhost/Badshah Property/index.html
 
 4. ✅ Test the contact form
 
@@ -80,12 +80,12 @@ ACCESSING YOUR WEBSITE:
 ================================================================
 
 CORRECT URLs:
-✅ http://localhost/Badshah Property/Index.html
-✅ http://127.0.0.1/Badshah Property/Index.html
+✅ http://localhost/Badshah Property/index.html
+✅ http://127.0.0.1/Badshah Property/index.html
 
 WRONG URLs (Don't work with PHP):
-❌ file:///C:/wamp64/www/Badshah Property/Index.html
-❌ C:\wamp64\www\Badshah Property\Index.html
+❌ file:///C:/wamp64/www/Badshah Property/index.html
+❌ C:\wamp64\www\Badshah Property\index.html
 
 ================================================================
 TESTING CHECKLIST:
@@ -96,7 +96,7 @@ TESTING CHECKLIST:
 □ Go to: http://localhost/Badshah Property/test-sms.php
 □ Click "Send Test SMS"
 □ Check phone for SMS
-□ If working, go to: http://localhost/Badshah Property/Index.html
+□ If working, go to: http://localhost/Badshah Property/index.html
 □ Test contact form
 □ Receive SMS on 9893372352!
 
@@ -113,7 +113,7 @@ Solution:
 Problem: localhost not working
 Solution:
 - Verify WAMP is green
-- Try: http://127.0.0.1/Badshah Property/Index.html
+- Try: http://127.0.0.1/Badshah Property/index.html
 - Check Windows Firewall settings
 
 Problem: SMS still not sending
@@ -130,7 +130,7 @@ QUICK FIX RIGHT NOW:
 1. Close your current browser tab
 2. Make sure WAMP is running (green icon)
 3. Open new browser tab
-4. Type: http://localhost/Badshah Property/Index.html
+4. Type: http://localhost/Badshah Property/index.html
 5. Try contact form again
 6. Should work! ✅
 
