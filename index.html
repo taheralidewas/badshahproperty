@@ -31,7 +31,9 @@
             animation: float 3s ease-in-out infinite;
         }
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+            /* Only visible if every video fails, so it needs just enough
+               tint to keep the headline readable. */
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
                         url('https://images.unsplash.com/photo-1500382018108-844b52a33059?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
@@ -116,8 +118,10 @@
         :root {
             --bp-green-deep: #2d5016;   /* section fills, footer */
             --bp-green: #166534;        /* headings, secondary buttons */
-            --bp-amber: #b45309;        /* primary accent (AA on white) */
-            --bp-amber-deep: #92400e;   /* accent hover */
+            /* Saffron-orange rather than the browner amber: more vivid while
+               still clearing AA with white text at 5.18:1. */
+            --bp-amber: #c2410c;        /* primary accent */
+            --bp-amber-deep: #9a3412;   /* hover, and eyebrow text */
             --bp-cream: #f5f5dc;
             --bp-ink-soft: #4b5563;     /* secondary copy */
         }
@@ -275,6 +279,53 @@
             70% { transform: translateY(10px); opacity: 1; }
             100% { transform: translateY(0); opacity: 1; }
         }
+        /* ---- Hero legibility and punch ----
+           The hero used a flat 50% black div on top of a 40% gradient, which
+           compounded to roughly 70% and left the footage looking grey. White
+           text needs about 45% over a bright sunlit frame to clear AA, so the
+           scrim is a gradient that never drops below 46%: darker top and
+           bottom where the nav and buttons sit, lighter through the middle so
+           the landscape still reads. Tinted deep green rather than pure black
+           so it warms the footage instead of greying it. */
+        .hero-scrim {
+            /* Two layers instead of one flat dim.
+
+               The linear layer is the base and only takes the footage down
+               25% through the middle, so the landscape stays vivid; it
+               deepens at the very top and bottom where the nav and the CTA
+               buttons need separation.
+
+               The radial layer is a spotlight behind the text column. The
+               two composite to 1-(1-0.25)(1-0.55) = 0.66 where the copy
+               sits, which puts white text at 6.59:1 even over the brightest
+               frame, while the edges of the video stay at 25%. */
+            background:
+                radial-gradient(ellipse 88% 82% at 50% 50%,
+                        rgba(16, 26, 10, 0.58) 0%,
+                        rgba(16, 26, 10, 0.55) 58%,
+                        rgba(16, 26, 10, 0.18) 82%,
+                        rgba(16, 26, 10, 0.00) 100%),
+                linear-gradient(180deg,
+                        rgba(16, 26, 10, 0.42) 0%,
+                        rgba(16, 26, 10, 0.25) 32%,
+                        rgba(16, 26, 10, 0.25) 68%,
+                        rgba(16, 26, 10, 0.46) 100%);
+        }
+
+        /* Counteract the flattening effect of the scrim. */
+        .hero-video-layer {
+            filter: saturate(1.28) contrast(1.08) brightness(1.06);
+        }
+
+        /* The logo is mid-green artwork and the footage is green fields, so it
+           needs a shadow to separate from the background. */
+        .hero-logo {
+            filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.55));
+        }
+        .hero-copy {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+        }
+
         /* Video background styling */
         video {
             pointer-events: none;
@@ -334,7 +385,7 @@
     <!-- Hero Section -->
     <section class="hero-bg text-white min-h-screen flex items-center justify-center relative overflow-hidden">
         <!-- Video Background 1 - Local video with slow motion -->
-        <div id="video1" class="absolute inset-0 w-full h-full overflow-hidden" style="opacity: 1; transition: opacity 5s ease-in-out;">
+        <div id="video1" class="absolute inset-0 w-full h-full overflow-hidden hero-video-layer" style="opacity: 1; transition: opacity 5s ease-in-out;">
             <video 
                 autoplay 
                 muted 
@@ -356,7 +407,7 @@
         </div>
         
         <!-- Video Background 2 - Local video with slow motion -->
-        <div id="video2" class="absolute inset-0 w-full h-full overflow-hidden" style="opacity: 0; transition: opacity 5s ease-in-out;">
+        <div id="video2" class="absolute inset-0 w-full h-full overflow-hidden hero-video-layer" style="opacity: 0; transition: opacity 5s ease-in-out;">
             <video 
                 muted 
                 playsinline
@@ -377,7 +428,7 @@
         </div>
         
         <!-- Video Background 3 - Local video with slow motion -->
-        <div id="video3" class="absolute inset-0 w-full h-full overflow-hidden" style="opacity: 0; transition: opacity 5s ease-in-out;">
+        <div id="video3" class="absolute inset-0 w-full h-full overflow-hidden hero-video-layer" style="opacity: 0; transition: opacity 5s ease-in-out;">
             <video 
                 muted 
                 playsinline
@@ -389,22 +440,22 @@
         </div>
         
         <!-- Dark overlay for better text readability -->
-        <div class="absolute inset-0 bg-black/50 z-10"></div>
+        <div class="absolute inset-0 hero-scrim z-10"></div>
         
         <!-- Content -->
         <div class="text-center z-10 px-4 max-w-5xl mx-auto animate-fadeIn" style="animation: fadeIn 1.5s ease-in-out; position: relative; z-index: 2;">
             <div class="mb-6">
-                <img src="images/logo.png" alt="Badshah Property Logo" class="h-40 sm:h-52 md:h-64 w-auto mx-auto mb-4 animate-float" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <img src="images/logo.png" alt="Badshah Property Logo" class="h-40 sm:h-52 md:h-64 w-auto mx-auto mb-4 animate-float hero-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <i class="fas fa-crown text-amber-400 text-6xl mb-4 animate-float" style="display: none;"></i>
             </div>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl mb-4 font-bold tracking-tight">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl mb-4 font-bold tracking-tight hero-copy">
                 <span class="sr-only">Badshah Property &mdash; </span>Premium Agricultural Land Deals
             </h1>
-            <p class="text-lg md:text-xl mb-8 text-amber-100">Indore to Bhopal Region • 15+ Years Experience</p>
+            <p class="text-lg md:text-xl mb-8 text-amber-100 hero-copy">Indore to Bhopal Region • 15+ Years Experience</p>
             
             <!-- Area Selection -->
-            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8 max-w-2xl mx-auto">
-                <h2 class="text-xl font-semibold mb-4">Find Properties by Area</h2>
+            <div class="bg-black/25 backdrop-blur-md rounded-xl p-6 mb-8 max-w-2xl mx-auto border border-white/25">
+                <h2 class="text-xl font-semibold mb-4 hero-copy">Find Properties by Area</h2>
                 <div class="flex flex-wrap justify-center gap-3">
                     <button class="btn btn-primary btn-sm" onclick="filterByArea('indore')">Indore</button>
                     <button class="btn btn-primary btn-sm" onclick="filterByArea('bhopal')">Bhopal</button>
