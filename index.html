@@ -65,37 +65,50 @@
         .agri-earth { background-color: #8b7355; }
         .agri-cream { background-color: #f5f5dc; }
 
-        /* ---- Agricultural background texture ----
-           A tileable SVG of wheat, leaves, sprouts and furrows, layered over each
-           section's existing colour. The motifs carry their own low opacity inside
-           the SVG, so nothing here dims the section content itself.
-           .agri-texture      -> dark motifs, for light surfaces
-           .agri-texture-dark -> light motifs, for the dark green sections */
-        .agri-texture,
-        .agri-texture-dark {
-            background-image: url('images/agri-texture.svg');
-            background-repeat: repeat;
-            /* Large, sparse motifs: a big tile keeps them feeling like
-               architectural line art rather than a busy pattern. */
-            background-size: 640px 640px;
+        /* ---- Decorative sketch accents ----
+           Not a repeating pattern: each section gets a single large piece of
+           line art anchored to one corner. Because they are drawn as the
+           section's own background-image they always paint behind every child,
+           so no z-index handling is needed and text can never be overlapped.
+
+           Being placed rather than tiled means they can carry roughly three
+           times the opacity of the old pattern and actually read as a sketch. */
+        .sketch {
+            background-repeat: no-repeat;
         }
-        .agri-texture-dark {
-            background-image: url('images/agri-texture-light.svg');
+        .sketch-farmstead-br {
+            background-image: url('images/sketch-farmstead.svg');
+            background-position: right -60px bottom -40px;
+            background-size: 560px auto;
+        }
+        .sketch-plot-bl {
+            background-image: url('images/sketch-plot.svg');
+            background-position: left -70px bottom -50px;
+            background-size: 520px auto;
+        }
+        .sketch-plot-tr {
+            background-image: url('images/sketch-plot.svg');
+            background-position: right -80px top -60px;
+            background-size: 460px auto;
+        }
+        .sketch-farmstead-br-light {
+            background-image: url('images/sketch-farmstead-light.svg');
+            background-position: right -50px bottom -30px;
+            background-size: 540px auto;
         }
 
-        /* Sections that set their own colour need the texture composited on top of
-           it, since background-image and background-color share one element. */
-        .agri-cream.agri-texture {
-            background-color: #f5f5dc;
-        }
-        .agri-green.agri-texture-dark {
-            background-color: #2d5016;
+        /* Keep the section fill behind the accent. */
+        .agri-cream.sketch { background-color: #f5f5dc; }
+        .agri-green.sketch { background-color: #2d5016; }
+
+        /* On narrow screens the accents would sit under the text column, so
+           drop them rather than risk readability. */
+        @media (max-width: 1023px) {
+            .sketch { background-image: none; }
         }
 
-        /* Respect users who ask for reduced motion/visual noise. */
         @media (prefers-reduced-transparency: reduce) {
-            .agri-texture,
-            .agri-texture-dark { background-image: none; }
+            .sketch { background-image: none; }
         }
         /* ================== Design system ==================
            Shared tokens and component classes so headings, buttons, cards and
@@ -280,7 +293,7 @@
         }
     </style>
 </head>
-<body class="bg-amber-50 text-gray-800 agri-texture">
+<body class="bg-amber-50 text-gray-800">
     <!-- Navigation -->
     <nav class="nav-bar text-green-900 shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -451,7 +464,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 agri-cream agri-texture">
+    <section id="services" class="py-20 agri-cream sketch sketch-farmstead-br">
         <div class="max-w-7xl mx-auto px-4">
             <div class="section-head">
                 <span class="section-eyebrow">What We Offer</span>
@@ -500,7 +513,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-white agri-texture">
+    <section id="gallery" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="section-head">
                 <span class="section-eyebrow">Our Work</span>
@@ -596,7 +609,7 @@
     </section>
 
     <!-- Listings Section -->
-    <section id="listings" class="py-20 agri-cream agri-texture">
+    <section id="listings" class="py-20 agri-cream sketch sketch-plot-bl">
         <div class="max-w-7xl mx-auto px-4">
         <div class="section-head">
             <span class="section-eyebrow">Featured Listings</span>
@@ -685,7 +698,7 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-20 bg-amber-50 agri-texture">
+    <section class="py-20 bg-amber-50 sketch sketch-plot-tr">
         <div class="max-w-7xl mx-auto px-4">
             <div class="section-head">
                 <span class="section-eyebrow">Testimonials</span>
@@ -761,7 +774,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 agri-green text-white agri-texture-dark">
+    <section id="contact" class="py-20 agri-green text-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col md:flex-row gap-12">
                 <div class="md:w-1/2">
@@ -879,7 +892,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="agri-green text-white py-12 agri-texture-dark">
+    <footer class="agri-green text-white py-12 sketch sketch-farmstead-br-light">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
@@ -932,7 +945,7 @@
                 </div>
             </div>
             
-            <div class="border-t border-green-700 mt-8 pt-8 text-center text-green-300">
+            <div class="border-t border-green-700 mt-8 pt-8 text-center text-green-200">
                 <p>&copy; <span id="footerYear">2026</span> Badshah Property. All rights reserved.</p>
             </div>
         </div>

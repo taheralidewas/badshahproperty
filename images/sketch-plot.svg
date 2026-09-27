@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Badshah Property - decorative land-survey sketch (dark linework).
+
+  A single placed accent, not a repeating tile: plot boundary with survey corner
+  markers, subdivision lines, dimension callouts, a compass and a location pin.
+
+  Light counterpart for dark sections: sketch-plot-light.svg
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="400" viewBox="0 0 520 400">
+  <g fill="none" stroke="#2d5016" stroke-opacity="0.16"
+     stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Plot boundary -->
+    <g stroke-width="3">
+      <path d="M58 92 L430 60 L462 306 L86 344 Z" stroke-dasharray="18 11"/>
+    </g>
+
+    <!-- Survey corner markers -->
+    <g stroke-width="2.2">
+      <circle cx="58" cy="92" r="7"/>
+      <path d="M58 79 L58 105 M45 92 L71 92"/>
+      <circle cx="430" cy="60" r="7"/>
+      <path d="M430 47 L430 73 M417 60 L443 60"/>
+      <circle cx="462" cy="306" r="7"/>
+      <path d="M462 293 L462 319 M449 306 L475 306"/>
+      <circle cx="86" cy="344" r="7"/>
+      <path d="M86 331 L86 357 M73 344 L99 344"/>
+    </g>
+
+    <!-- Subdivision lines -->
+    <g stroke-width="1.8">
+      <path d="M182 80 L204 330" stroke-dasharray="9 9"/>
+      <path d="M306 69 L328 319" stroke-dasharray="9 9"/>
+      <path d="M68 214 L448 186" stroke-dasharray="9 9"/>
+    </g>
+
+    <!-- Plot labels as simple marks, not letters -->
+    <g stroke-width="2">
+      <path d="M112 150 L150 146 M112 162 L138 159"/>
+      <path d="M232 138 L270 134 M232 150 L258 147"/>
+      <path d="M356 126 L394 122 M356 138 L382 135"/>
+      <path d="M124 264 L162 260 M124 276 L150 273"/>
+      <path d="M246 252 L284 248 M246 264 L272 261"/>
+      <path d="M368 240 L406 236 M368 252 L394 249"/>
+    </g>
+
+    <!-- Top dimension line -->
+    <g stroke-width="2">
+      <path d="M58 40 L430 8"/>
+      <path d="M54 28 L62 52 M426 -4 L434 20"/>
+      <path d="M58 40 L76 34 M58 40 L75 46"/>
+      <path d="M430 8 L412 14 M430 8 L413 2"/>
+    </g>
+
+    <!-- Right dimension line -->
+    <g stroke-width="2">
+      <path d="M486 62 L500 304"/>
+      <path d="M474 60 L498 56 M488 306 L512 302"/>
+      <path d="M486 62 L482 80 M486 62 L494 78"/>
+      <path d="M500 304 L496 286 M500 304 L508 288"/>
+    </g>
+
+    <!-- Compass -->
+    <g stroke-width="2.2">
+      <circle cx="424" cy="370" r="24"/>
+      <path d="M424 350 L432 372 L424 366 L416 372 Z"/>
+      <path d="M424 346 L424 340 M424 394 L424 400 M400 370 L394 370 M448 370 L454 370"/>
+    </g>
+
+    <!-- Location pin inside the plot -->
+    <g stroke-width="2.6">
+      <path d="M262 218 C262 218 236 184 236 164 A26 26 0 0 1 288 164
+               C288 184 262 218 262 218 Z"/>
+      <circle cx="262" cy="163" r="9"/>
+      <path d="M244 230 L280 226" stroke-dasharray="6 6"/>
+    </g>
+
+    <!-- Tree inside the parcel -->
+    <g stroke-width="2.2">
+      <path d="M140 330 L140 300"/>
+      <path d="M140 300 C120 300 114 282 124 271 C127 257 146 252 155 261
+               C167 264 170 283 160 292 C156 297 149 300 140 300 Z"/>
+    </g>
+  </g>
+</svg>

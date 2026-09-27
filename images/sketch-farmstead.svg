@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Badshah Property - decorative farmstead sketch (dark linework).
+
+  A single placed accent, not a repeating tile. Used as a no-repeat background
+  on a section corner, so it always sits behind content and can carry a much
+  higher opacity than a tiled pattern would allow.
+
+  Light counterpart for dark sections: sketch-farmstead-light.svg
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="400" viewBox="0 0 560 400">
+  <g fill="none" stroke="#2d5016" stroke-opacity="0.16"
+     stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Sun and birds -->
+    <g stroke-width="2">
+      <circle cx="476" cy="62" r="26"/>
+      <path d="M476 20 L476 30 M476 94 L476 104 M434 62 L444 62 M508 62 L518 62
+               M446 32 L453 39 M499 85 L506 92 M506 32 L499 39 M453 85 L446 92"/>
+      <path d="M330 56 C336 50 342 50 348 56 M348 56 C354 50 360 50 366 56"/>
+      <path d="M378 84 C383 79 388 79 393 84 M393 84 C398 79 403 79 408 84"/>
+    </g>
+
+    <!-- Barn with silo, left -->
+    <g stroke-width="2.6">
+      <path d="M40 196 L58 160 L150 148 L172 186"/>
+      <path d="M40 196 L40 300 L172 300 L172 186"/>
+      <path d="M86 300 L86 232 L128 232 L128 300"/>
+      <path d="M86 232 L128 300 M128 232 L86 300"/>
+      <path d="M96 176 L118 173 L118 196 L96 199 Z"/>
+      <!-- silo -->
+      <path d="M192 300 L192 194 A21 21 0 0 1 234 194 L234 300"/>
+      <path d="M192 216 L234 216 M192 244 L234 244 M192 272 L234 272"/>
+      <path d="M186 194 L240 194"/>
+    </g>
+
+    <!-- Farmhouse, right of centre -->
+    <g stroke-width="2.8">
+      <path d="M262 214 L350 142 L438 214"/>
+      <path d="M278 212 L278 300 L422 300 L422 212"/>
+      <!-- door -->
+      <path d="M332 300 L332 248 L368 248 L368 300"/>
+      <path d="M350 248 L350 300"/>
+      <!-- windows -->
+      <path d="M296 238 L320 238 L320 262 L296 262 Z"/>
+      <path d="M308 238 L308 262 M296 250 L320 250"/>
+      <path d="M380 238 L404 238 L404 262 L380 262 Z"/>
+      <path d="M392 238 L392 262 M380 250 L404 250"/>
+      <!-- gable vent -->
+      <path d="M350 170 L364 184 L350 198 L336 184 Z"/>
+      <!-- chimney with smoke -->
+      <path d="M400 174 L400 150 L416 150 L416 190"/>
+      <path d="M408 142 C400 134 416 128 408 118 C400 110 416 104 410 96"/>
+    </g>
+
+    <!-- Trees -->
+    <g stroke-width="2.4">
+      <path d="M492 300 L492 244"/>
+      <path d="M492 244 C458 244 448 214 464 196 C468 172 502 164 516 178
+               C538 182 542 214 524 232 C518 240 506 244 492 244 Z"/>
+      <path d="M492 266 L472 250 M492 276 L512 256"/>
+      <path d="M62 300 L62 262"/>
+      <path d="M62 262 C40 262 33 242 44 230 C47 214 69 209 78 218
+               C93 221 96 242 84 254 C80 259 72 262 62 262 Z"/>
+    </g>
+
+    <!-- Fence across the front -->
+    <g stroke-width="2.2">
+      <path d="M16 330 L544 330 M16 350 L544 350"/>
+      <path d="M32 314 L32 372 M104 314 L104 372 M176 314 L176 372
+               M248 314 L248 372 M320 314 L320 372 M392 314 L392 372
+               M464 314 L464 372 M528 314 L528 372"/>
+    </g>
+
+    <!-- Ground and furrows -->
+    <g stroke-width="2">
+      <path d="M0 300 L560 300"/>
+      <path d="M40 386 C160 372 320 372 470 386"/>
+      <path d="M70 398 C190 384 350 384 500 398"/>
+    </g>
+  </g>
+</svg>
