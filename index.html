@@ -95,6 +95,153 @@
             .agri-texture,
             .agri-texture-dark { background-image: none; }
         }
+        /* ================== Design system ==================
+           Shared tokens and component classes so headings, buttons, cards and
+           focus states stay consistent across every section. */
+        :root {
+            --bp-green-deep: #2d5016;   /* section fills, footer */
+            --bp-green: #166534;        /* headings, secondary buttons */
+            --bp-amber: #b45309;        /* primary accent (AA on white) */
+            --bp-amber-deep: #92400e;   /* accent hover */
+            --bp-cream: #f5f5dc;
+            --bp-ink-soft: #4b5563;     /* secondary copy */
+        }
+
+        html { scroll-behavior: smooth; }
+
+        /* The nav is sticky and 80px tall, so anchored sections need an offset
+           or their headings land hidden underneath it. */
+        section[id] { scroll-margin-top: 6rem; }
+
+        /* Keyboard focus has to stay visible. Several controls used
+           focus:outline-none with no replacement. */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid var(--bp-amber);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* ---- Section headers ---- */
+        .section-head {
+            max-width: 46rem;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+        .section-head--left {
+            margin-left: 0;
+            margin-right: 0;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.8125rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--bp-amber);
+            margin-bottom: 0.5rem;
+        }
+        .section-title {
+            font-size: clamp(1.75rem, 1.2rem + 2vw, 2.25rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--bp-green);
+        }
+        .section-rule {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: 0.9rem 0 1rem;
+            color: var(--bp-amber);
+            font-size: 0.95rem;
+        }
+        .section-head--left .section-rule { justify-content: flex-start; }
+        .section-rule::before,
+        .section-rule::after {
+            content: '';
+            height: 2px;
+            width: 2.5rem;
+            border-radius: 2px;
+            background: currentColor;
+            opacity: 0.45;
+        }
+        .section-subtitle {
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--bp-ink-soft);
+        }
+        /* On the dark green sections the same block inverts. */
+        .section-head--on-dark .section-eyebrow,
+        .section-head--on-dark .section-rule { color: #fbbf24; }
+        .section-head--on-dark .section-title { color: #ffffff; }
+        .section-head--on-dark .section-subtitle { color: #e7e5e4; }
+
+        /* ---- Buttons ---- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.2;
+            text-align: center;
+            transition: background-color .25s ease, color .25s ease,
+                        transform .25s ease, box-shadow .25s ease;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-sm { padding: 0.5rem 1.15rem; font-size: 0.9375rem; }
+        .btn-primary {
+            background: var(--bp-amber);
+            color: #ffffff;
+            box-shadow: 0 4px 14px -4px rgba(180, 83, 9, .5);
+        }
+        .btn-primary:hover { background: var(--bp-amber-deep); color: #ffffff; }
+        .btn-secondary { background: var(--bp-green); color: #ffffff; }
+        .btn-secondary:hover { background: #14532d; color: #ffffff; }
+        .btn-outline {
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            background: transparent;
+        }
+        .btn-outline:hover { background: #ffffff; color: var(--bp-green); }
+
+        /* ---- Cards ---- */
+        .card {
+            background: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .07),
+                        0 10px 28px -14px rgba(45, 80, 22, .22);
+            border: 1px solid rgba(45, 80, 22, .07);
+        }
+
+        /* ---- Prices ---- */
+        .price {
+            color: var(--bp-amber);
+            font-weight: 700;
+        }
+
+        /* This page runs several looping animations; let users opt out. */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .animate-float,
+            .pin-drop { animation: none !important; }
+            .btn:hover,
+            .card-hover:hover { transform: none; }
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(139, 92, 0, 0.4);
@@ -146,7 +293,7 @@
                     <a href="#services" class="text-green-900 font-medium hover:text-amber-800 transition-all">Services</a>
                     <a href="#listings" class="text-green-900 font-medium hover:text-amber-800 transition-all">Listings</a>
                     <a href="#gallery" class="text-green-900 font-medium hover:text-amber-800 transition-all">Gallery</a>
-                    <a href="#contact" class="bg-amber-700 hover:bg-amber-800 text-white px-4 py-2 rounded-md transition-all">Contact</a>
+                    <a href="#contact" class="btn btn-primary btn-sm">Contact</a>
                 </div>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-green-900 focus:outline-none" aria-label="Toggle navigation menu" aria-controls="mobile-menu" aria-expanded="false">
@@ -229,28 +376,29 @@
         <!-- Content -->
         <div class="text-center z-10 px-4 max-w-5xl mx-auto animate-fadeIn" style="animation: fadeIn 1.5s ease-in-out; position: relative; z-index: 2;">
             <div class="mb-6">
-                <img src="images/logo.png" alt="Badshah Property Logo" class="h-80 w-auto mx-auto mb-4 animate-float" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <img src="images/logo.png" alt="Badshah Property Logo" class="h-40 sm:h-52 md:h-64 w-auto mx-auto mb-4 animate-float" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <i class="fas fa-crown text-amber-400 text-6xl mb-4 animate-float" style="display: none;"></i>
             </div>
-            <!-- <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-300 to-amber-100 bg-clip-text text-transparent">Badshah Property</h1> -->
-            <p class="text-2xl md:text-3xl mb-4 font-semibold">Premium Agricultural Land Deals</p>
-            <p class="text-lg md:text-xl mb-8 text-amber-100">Indore to Bhopal Region â€¢ 15+ Years Experience</p>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl mb-4 font-bold tracking-tight">
+                <span class="sr-only">Badshah Property &mdash; </span>Premium Agricultural Land Deals
+            </h1>
+            <p class="text-lg md:text-xl mb-8 text-amber-100">Indore to Bhopal Region • 15+ Years Experience</p>
             
             <!-- Area Selection -->
             <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8 max-w-2xl mx-auto">
-                <h3 class="text-xl font-semibold mb-4">Find Properties by Area</h3>
+                <h2 class="text-xl font-semibold mb-4">Find Properties by Area</h2>
                 <div class="flex flex-wrap justify-center gap-3">
-                    <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md transition-all transform hover:scale-105" onclick="filterByArea('indore')">Indore</button>
-                    <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md transition-all transform hover:scale-105" onclick="filterByArea('bhopal')">Bhopal</button>
-                    <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md transition-all transform hover:scale-105" onclick="filterByArea('dewas')">Dewas</button>
-                    <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md transition-all transform hover:scale-105" onclick="filterByArea('ujjain')">Ujjain</button>
-                    <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md transition-all transform hover:scale-105" onclick="filterByArea('all')">All Areas</button>
+                    <button class="btn btn-primary btn-sm" onclick="filterByArea('indore')">Indore</button>
+                    <button class="btn btn-primary btn-sm" onclick="filterByArea('bhopal')">Bhopal</button>
+                    <button class="btn btn-primary btn-sm" onclick="filterByArea('dewas')">Dewas</button>
+                    <button class="btn btn-primary btn-sm" onclick="filterByArea('ujjain')">Ujjain</button>
+                    <button class="btn btn-primary btn-sm" onclick="filterByArea('all')">All Areas</button>
                 </div>
             </div>
             
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#listings" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg">View Best Properties</a>
-                <a href="#contact" class="bg-transparent border-2 border-white hover:bg-white hover:text-green-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">Get Free Consultation</a>
+                <a href="#listings" class="btn btn-primary text-lg">View Best Properties</a>
+                <a href="#contact" class="btn btn-outline text-lg">Get Free Consultation</a>
             </div>
         </div>
     </section>
@@ -265,20 +413,24 @@
         <div class="max-w-7xl mx-auto relative z-10">
         <div class="flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2 animate-slideInLeft" style="animation: slideInLeft 1s ease-out;">
-                <h2 class="text-3xl font-bold text-green-800 mb-6">About Badshah Property</h2>
+                <div class="section-head section-head--left">
+                    <span class="section-eyebrow">Who We Are</span>
+                    <h2 class="section-title">About Badshah Property</h2>
+                    <div class="section-rule" aria-hidden="true"><i class="fas fa-seedling"></i></div>
+                </div>
                 <p class="text-lg mb-4">With over 15 years of experience in the real estate industry, Badshah Property has established itself as a trusted name in agricultural land and plot deals across the Indore to Bhopal region.</p>
                 <p class="text-lg mb-6">We specialize in connecting buyers with premium land opportunities that promise growth and prosperity. Our expertise covers agricultural land, residential plots, and commercial properties with complete legal support.</p>
                 <div class="flex items-center gap-4">
                     <div class="bg-green-100 p-4 rounded-lg text-center">
-                        <p class="text-3xl font-bold text-amber-600">15+</p>
+                        <p class="text-3xl font-bold text-amber-700">15+</p>
                         <p class="text-green-800">Years Experience</p>
                     </div>
                     <div class="bg-green-100 p-4 rounded-lg text-center">
-                        <p class="text-3xl font-bold text-amber-600">500+</p>
+                        <p class="text-3xl font-bold text-amber-700">500+</p>
                         <p class="text-green-800">Happy Clients</p>
                     </div>
                     <div class="bg-green-100 p-4 rounded-lg text-center">
-                        <p class="text-3xl font-bold text-amber-600">1000+</p>
+                        <p class="text-3xl font-bold text-amber-700">1000+</p>
                         <p class="text-green-800">Properties Sold</p>
                     </div>
                 </div>
@@ -298,11 +450,16 @@
     <!-- Services Section -->
     <section id="services" class="py-20 agri-cream agri-texture">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Our Services</h2>
+            <div class="section-head">
+                <span class="section-eyebrow">What We Offer</span>
+                <h2 class="section-title">Our Services</h2>
+                <div class="section-rule" aria-hidden="true"><i class="fas fa-wheat-awn"></i></div>
+                <p class="section-subtitle">Complete support for buying agricultural land and plots, from shortlisting the right parcel through to registry.</p>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md transition-all card-hover">
-                    <div class="text-amber-600 text-4xl mb-4">
+                <div class="card p-6 transition-all card-hover">
+                    <div class="text-amber-700 text-4xl mb-4">
                         <i class="fas fa-tractor"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2 text-green-800">Agricultural Land Deals</h3>
@@ -310,8 +467,8 @@
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md transition-all card-hover">
-                    <div class="text-amber-600 text-4xl mb-4">
+                <div class="card p-6 transition-all card-hover">
+                    <div class="text-amber-700 text-4xl mb-4">
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2 text-green-800">Plot Sales</h3>
@@ -319,8 +476,8 @@
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md transition-all card-hover">
-                    <div class="text-amber-600 text-4xl mb-4">
+                <div class="card p-6 transition-all card-hover">
+                    <div class="text-amber-700 text-4xl mb-4">
                         <i class="fas fa-file-contract"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2 text-green-800">Legal Support</h3>
@@ -328,8 +485,8 @@
                 </div>
                 
                 <!-- Service 4 -->
-                <div class="bg-white p-6 rounded-lg shadow-md transition-all card-hover">
-                    <div class="text-amber-600 text-4xl mb-4">
+                <div class="card p-6 transition-all card-hover">
+                    <div class="text-amber-700 text-4xl mb-4">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2 text-green-800">Investment Consultancy</h3>
@@ -342,12 +499,16 @@
     <!-- Gallery Section -->
     <section id="gallery" class="py-20 bg-white agri-texture">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Our Property Gallery</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Explore our diverse portfolio of agricultural lands, residential plots, and commercial properties across the Indore to Bhopal region.</p>
+            <div class="section-head">
+                <span class="section-eyebrow">Our Work</span>
+                <h2 class="section-title">Our Property Gallery</h2>
+                <div class="section-rule" aria-hidden="true"><i class="fas fa-tractor"></i></div>
+                <p class="section-subtitle">Explore our portfolio of agricultural land, residential plots and commercial property across the Indore to Bhopal region.</p>
+            </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Gallery Item 1 - Agricultural Land Plots -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg transition-all card-hover">
+                <div class="relative group overflow-hidden rounded-xl shadow-md transition-all card-hover">
                     <img src="images/agri-land-1.jpg" 
                          alt="Agricultural Land Plots" 
                          class="w-full h-64 object-cover transition-transform group-hover:scale-110">
@@ -360,7 +521,7 @@
                 </div>
                 
                 <!-- Gallery Item 2 - Open Farm Land -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg transition-all card-hover">
+                <div class="relative group overflow-hidden rounded-xl shadow-md transition-all card-hover">
                     <img src="images/agri-land-2.jpg" 
                          alt="Open Farm Land" 
                          class="w-full h-64 object-cover transition-transform group-hover:scale-110">
@@ -373,7 +534,7 @@
                 </div>
                 
                 <!-- Gallery Item 3 - Green Fields -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg transition-all card-hover">
+                <div class="relative group overflow-hidden rounded-xl shadow-md transition-all card-hover">
                     <img src="images/agri-land-3.jpg" 
                          alt="Green Fields" 
                          class="w-full h-64 object-cover transition-transform group-hover:scale-110">
@@ -386,7 +547,7 @@
                 </div>
                 
                 <!-- Gallery Item 4 - Rice Paddy Fields -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg transition-all card-hover">
+                <div class="relative group overflow-hidden rounded-xl shadow-md transition-all card-hover">
                     <img src="images/agri-land-4.jpg" 
                          alt="Rice Paddy Fields" 
                          class="w-full h-64 object-cover transition-transform group-hover:scale-110">
@@ -399,7 +560,7 @@
                 </div>
                 
                 <!-- Gallery Item 5 - Farm Land View -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg transition-all card-hover">
+                <div class="relative group overflow-hidden rounded-xl shadow-md transition-all card-hover">
                     <img src="images/agri-land-5.jpg" 
                          alt="Farm Land View" 
                          class="w-full h-64 object-cover transition-transform group-hover:scale-110">
@@ -412,7 +573,7 @@
                 </div>
                 
                 <!-- Gallery Item 6 - Agricultural Plot -->
-                <div class="relative group overflow-hidden rounded-lg shadow-lg transition-all card-hover">
+                <div class="relative group overflow-hidden rounded-xl shadow-md transition-all card-hover">
                     <img src="images/agri-land-6.jpg" 
                          alt="Agricultural Plot" 
                          class="w-full h-64 object-cover transition-transform group-hover:scale-110">
@@ -426,34 +587,39 @@
             </div>
             
             <div class="text-center mt-12">
-                <a href="#contact" class="inline-block bg-green-800 hover:bg-green-900 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105">View All Properties</a>
+                <a href="#contact" class="btn btn-secondary">View All Properties</a>
             </div>
         </div>
     </section>
 
     <!-- Listings Section -->
-    <section id="listings" class="py-20 px-4 max-w-7xl mx-auto agri-cream agri-texture">
-        <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Best Properties for Investment</h2>
-        <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Discover our handpicked selection of premium properties with excellent growth potential and investment returns.</p>
+    <section id="listings" class="py-20 agri-cream agri-texture">
+        <div class="max-w-7xl mx-auto px-4">
+        <div class="section-head">
+            <span class="section-eyebrow">Featured Listings</span>
+            <h2 class="section-title">Best Properties for Investment</h2>
+            <div class="section-rule" aria-hidden="true"><i class="fas fa-location-dot"></i></div>
+            <p class="section-subtitle">A handpicked selection of parcels with strong growth potential and clear title.</p>
+        </div>
         
         <div class="hs-carousel relative">
             <div class="hs-carousel-body overflow-hidden">
                 <div class="hs-carousel-slides flex transition-transform duration-500">
                     <!-- Listing 1 -->
                     <div class="hs-carousel-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4" data-area="indore">
-                        <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all card-hover">
+                        <div class="card overflow-hidden transition-all card-hover">
                             <div class="relative h-48 overflow-hidden">
                                 <img src="images/agri-land-9.jpg" 
                                      alt="Agricultural Land" class="w-full h-full object-cover">
-                                <div class="absolute top-2 right-2 bg-amber-600 text-white px-2 py-1 rounded text-sm">Featured</div>
+                                <div class="absolute top-2 right-2 bg-amber-700 text-white px-2 py-1 rounded text-sm">Featured</div>
                                 <div class="absolute top-2 left-2 bg-green-600 text-white px-2 py-1 rounded text-sm">Indore</div>
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold text-green-800 mb-2">15-Acre Farmland</h3>
                                 <p class="text-gray-600 mb-4">Premium agricultural land with tube well, road access, and fertile soil near Indore</p>
                                 <div class="flex justify-between items-center">
-                                    <span class="font-bold text-amber-600">â‚¹35 Lakhs</span>
-                                    <a href="#contact" class="text-green-700 hover:text-green-900 font-medium">Contact Now â†’</a>
+                                    <span class="price text-lg">₹35 Lakhs</span>
+                                    <a href="#contact" class="text-green-700 hover:text-green-900 font-medium">Contact Now →</a>
                                 </div>
                             </div>
                         </div>
@@ -461,19 +627,19 @@
                     
                     <!-- Listing 2 -->
                     <div class="hs-carousel-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4" data-area="bhopal">
-                        <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all card-hover">
+                        <div class="card overflow-hidden transition-all card-hover">
                             <div class="relative h-48 overflow-hidden">
                                 <img src="images/agri-land-7.jpg" 
                                      alt="Residential Plots" class="w-full h-full object-cover">
-                                <div class="absolute top-2 right-2 bg-amber-600 text-white px-2 py-1 rounded text-sm">Best Deal</div>
+                                <div class="absolute top-2 right-2 bg-amber-700 text-white px-2 py-1 rounded text-sm">Best Deal</div>
                                 <div class="absolute top-2 left-2 bg-green-600 text-white px-2 py-1 rounded text-sm">Bhopal</div>
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold text-green-800 mb-2">Residential Plots</h3>
                                 <p class="text-gray-600 mb-4">Premium plotted development near Bhopal with all approvals and amenities</p>
                                 <div class="flex justify-between items-center">
-                                    <span class="font-bold text-amber-600">â‚¹18 Lakhs+</span>
-                                    <a href="#contact" class="text-green-700 hover:text-green-900 font-medium">Contact Now â†’</a>
+                                    <span class="price text-lg">₹18 Lakhs+</span>
+                                    <a href="#contact" class="text-green-700 hover:text-green-900 font-medium">Contact Now →</a>
                                 </div>
                             </div>
                         </div>
@@ -481,19 +647,19 @@
                     
                     <!-- Listing 3 -->
                     <div class="hs-carousel-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4" data-area="dewas">
-                        <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all card-hover">
+                        <div class="card overflow-hidden transition-all card-hover">
                             <div class="relative h-48 overflow-hidden">
                                 <img src="images/agri-land-8.jpg" 
                                      alt="Commercial Plots" class="w-full h-full object-cover">
-                                <div class="absolute top-2 right-2 bg-amber-600 text-white px-2 py-1 rounded text-sm">New</div>
+                                <div class="absolute top-2 right-2 bg-amber-700 text-white px-2 py-1 rounded text-sm">New</div>
                                 <div class="absolute top-2 left-2 bg-green-600 text-white px-2 py-1 rounded text-sm">Dewas</div>
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold text-green-800 mb-2">Commercial Plots</h3>
                                 <p class="text-gray-600 mb-4">High-value commercial plots near Dewas with excellent visibility and road connectivity</p>
                                 <div class="flex justify-between items-center">
-                                    <span class="font-bold text-amber-600">â‚¹45 Lakhs+</span>
-                                    <a href="#contact" class="text-green-700 hover:text-green-900 font-medium">Contact Now â†’</a>
+                                    <span class="price text-lg">₹45 Lakhs+</span>
+                                    <a href="#contact" class="text-green-700 hover:text-green-900 font-medium">Contact Now →</a>
                                 </div>
                             </div>
                         </div>
@@ -510,19 +676,25 @@
         </div>
         
         <div class="text-center mt-8">
-            <a href="#" class="inline-block bg-green-800 hover:bg-green-900 text-white px-6 py-3 rounded-md font-medium transition-all">View All Listings</a>
+            <a href="#" class="btn btn-secondary">View All Listings</a>
+            </div>
         </div>
     </section>
 
     <!-- Testimonials -->
     <section class="py-20 bg-amber-50 agri-texture">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">What Our Clients Say</h2>
+            <div class="section-head">
+                <span class="section-eyebrow">Testimonials</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="section-rule" aria-hidden="true"><i class="fas fa-quote-right"></i></div>
+                <p class="section-subtitle">Buyers who trusted us with their land purchase.</p>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="card p-6">
                     <div class="flex items-center mb-4">
-                        <div class="text-amber-400 text-2xl mr-2">
+                        <div class="text-amber-600 text-2xl mr-2">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -541,9 +713,9 @@
                 </div>
                 
                 <!-- Testimonial 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="card p-6">
                     <div class="flex items-center mb-4">
-                        <div class="text-amber-400 text-2xl mr-2">
+                        <div class="text-amber-600 text-2xl mr-2">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -562,9 +734,9 @@
                 </div>
                 
                 <!-- Testimonial 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="card p-6">
                     <div class="flex items-center mb-4">
-                        <div class="text-amber-400 text-2xl mr-2">
+                        <div class="text-amber-600 text-2xl mr-2">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -590,8 +762,12 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col md:flex-row gap-12">
                 <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
-                    <p class="mb-8">Ready to find your perfect land or plot? Contact us today for personalized assistance and expert guidance.</p>
+                    <div class="section-head section-head--left section-head--on-dark">
+                        <span class="section-eyebrow">Talk To Us</span>
+                        <h2 class="section-title">Get In Touch</h2>
+                        <div class="section-rule" aria-hidden="true"><i class="fas fa-leaf"></i></div>
+                        <p class="section-subtitle">Ready to find your land or plot? Reach out for personalised guidance from our team.</p>
+                    </div>
                     
                     <div class="space-y-6">
                         <div class="flex items-start">
@@ -627,7 +803,7 @@
                 </div>
                 
                 <div class="md:w-1/2">
-                    <form id="contactForm" class="bg-white p-6 rounded-lg shadow-lg text-gray-800">
+                    <form id="contactForm" class="card p-6 md:p-8 text-gray-800">
                         <h3 class="text-xl font-bold text-green-800 mb-4">Send Us a Message</h3>
                         <p class="text-sm text-gray-600 mb-4">We'll send you an SMS confirmation and contact you within 24 hours.</p>
                         
@@ -675,10 +851,10 @@
                             <label class="block text-gray-700 mb-2" for="budget">Budget Range</label>
                             <select id="budget" name="budget" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
                                 <option value="">Select Budget</option>
-                                <option value="10-25-lakhs">â‚¹10-25 Lakhs</option>
-                                <option value="25-50-lakhs">â‚¹25-50 Lakhs</option>
-                                <option value="50-100-lakhs">â‚¹50-100 Lakhs</option>
-                                <option value="100-lakhs-plus">â‚¹100 Lakhs+</option>
+                                <option value="10-25-lakhs">₹10-25 Lakhs</option>
+                                <option value="25-50-lakhs">₹25-50 Lakhs</option>
+                                <option value="50-100-lakhs">₹50-100 Lakhs</option>
+                                <option value="100-lakhs-plus">₹100 Lakhs+</option>
                                 <option value="not-sure">Not Sure</option>
                             </select>
                         </div>
@@ -688,7 +864,7 @@
                             <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Tell us about your requirements..."></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-md font-medium transition-all transform hover:scale-105">
+                        <button type="submit" class="btn btn-primary w-full">
                             <i class="fas fa-paper-plane mr-2"></i>Send Message
                         </button>
                         
@@ -743,22 +919,28 @@
                         <a href="#" class="text-green-200 hover:text-amber-400 text-xl transition-all"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-green-200 hover:text-amber-400 text-xl transition-all"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <p class="text-green-200">Subscribe to our newsletter</p>
+                    <label for="newsletterEmail" class="block text-green-200">Subscribe to our newsletter</label>
                     <div class="flex mt-2">
-                        <input type="email" placeholder="Your email" class="px-3 py-2 text-gray-800 rounded-l-md w-full">
-                        <button class="bg-amber-600 hover:bg-amber-700 px-4 rounded-r-md"><i class="fas fa-paper-plane"></i></button>
+                        <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="Your email"
+                               class="px-3 py-2 text-gray-800 rounded-l-md w-full">
+                        <button type="submit" aria-label="Subscribe to newsletter"
+                                class="bg-amber-700 hover:bg-amber-800 px-4 rounded-r-md text-white"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>
             
             <div class="border-t border-green-700 mt-8 pt-8 text-center text-green-300">
-                <p>Â© 2023 Badshah Property. All rights reserved.</p>
+                <p>&copy; <span id="footerYear">2026</span> Badshah Property. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Keep the footer copyright year current without editing markup.
+            const yearEl = document.getElementById('footerYear');
+            if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+
             // Set slow motion playback speed
             const bgVideo1 = document.getElementById('bgVideo1');
             const bgVideo2 = document.getElementById('bgVideo2');
@@ -1085,10 +1267,10 @@
             // Update button states
             document.querySelectorAll('[onclick^="filterByArea"]').forEach(btn => {
                 btn.classList.remove('bg-amber-700');
-                btn.classList.add('bg-amber-600');
+                btn.classList.add('bg-amber-700');
             });
             
-            event.target.classList.remove('bg-amber-600');
+            event.target.classList.remove('bg-amber-700');
             event.target.classList.add('bg-amber-700');
             
             // Scroll to listings section
