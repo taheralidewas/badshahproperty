@@ -385,7 +385,7 @@
     <!-- Hero Section -->
     <section class="hero-bg text-white min-h-screen flex items-center justify-center relative overflow-hidden">
         <!-- Video Background 1 - Local video with slow motion -->
-        <div id="video1" class="absolute inset-0 w-full h-full overflow-hidden hero-video-layer" style="opacity: 1; transition: opacity 5s ease-in-out;">
+        <div id="video1" class="absolute inset-0 w-full h-full overflow-hidden hero-video-layer z-0" style="opacity: 1; transition: opacity 5s ease-in-out;">
             <video 
                 autoplay 
                 muted 
@@ -407,7 +407,7 @@
         </div>
         
         <!-- Video Background 2 - Local video with slow motion -->
-        <div id="video2" class="absolute inset-0 w-full h-full overflow-hidden hero-video-layer" style="opacity: 0; transition: opacity 5s ease-in-out;">
+        <div id="video2" class="absolute inset-0 w-full h-full overflow-hidden hero-video-layer z-0" style="opacity: 0; transition: opacity 5s ease-in-out;">
             <video 
                 muted 
                 playsinline
@@ -428,7 +428,7 @@
         </div>
         
         <!-- Video Background 3 - Local video with slow motion -->
-        <div id="video3" class="absolute inset-0 w-full h-full overflow-hidden hero-video-layer" style="opacity: 0; transition: opacity 5s ease-in-out;">
+        <div id="video3" class="absolute inset-0 w-full h-full overflow-hidden hero-video-layer z-0" style="opacity: 0; transition: opacity 5s ease-in-out;">
             <video 
                 muted 
                 playsinline
@@ -439,11 +439,12 @@
             </video>
         </div>
         
-        <!-- Dark overlay for better text readability -->
-        <div class="absolute inset-0 hero-scrim z-10"></div>
+        <!-- Scrim: sits above the video (z-0) but below the content (z-20),
+             so it darkens only the footage and never the logo or copy. -->
+        <div class="absolute inset-0 hero-scrim z-10" aria-hidden="true"></div>
         
         <!-- Content -->
-        <div class="text-center z-10 px-4 max-w-5xl mx-auto animate-fadeIn" style="animation: fadeIn 1.5s ease-in-out; position: relative; z-index: 2;">
+        <div class="relative z-20 text-center px-4 max-w-5xl mx-auto animate-fadeIn" style="animation: fadeIn 1.5s ease-in-out;">
             <div class="mb-6">
                 <img src="images/logo.png" alt="Badshah Property Logo" class="h-40 sm:h-52 md:h-64 w-auto mx-auto mb-4 animate-float hero-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <i class="fas fa-crown text-amber-400 text-6xl mb-4 animate-float" style="display: none;"></i>
