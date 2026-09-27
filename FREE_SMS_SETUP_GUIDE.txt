@@ -1,0 +1,182 @@
+================================================================
+BADSHAH PROPERTY - FREE SMS SETUP GUIDE
+================================================================
+
+BEST FREE OPTION: TEXTLOCAL (20 FREE SMS)
+================================================================
+
+Textlocal gives you 20 FREE SMS credits when you sign up!
+This is perfect for testing and initial use.
+
+================================================================
+STEP-BY-STEP SETUP FOR TEXTLOCAL (FREE)
+================================================================
+
+STEP 1: SIGN UP FOR FREE
+-------------------------
+1. Go to: https://www.textlocal.in/
+2. Click "Sign Up Free" or "Start Free Trial"
+3. Fill in your details:
+   - Your name
+   - Business name: Badshah Property
+   - Phone: 9893372352
+   - Email: info@badshahproperty.com
+4. Verify your phone number
+5. Complete registration
+
+STEP 2: GET YOUR FREE API KEY
+------------------------------
+1. Login to your Textlocal dashboard
+2. Go to "Settings" or "API Keys" section
+3. Click "Create New API Key"
+4. Copy your API Key (looks like: abcd1234xyz5678...)
+5. You get 20 FREE test SMS credits automatically!
+
+STEP 3: CONFIGURE send-sms.php
+-------------------------------
+1. Open the file: send-sms.php
+2. Find line 41: $TEXTLOCAL_API_KEY = 'YOUR_TEXTLOCAL_API_KEY';
+3. Replace with your actual key: $TEXTLOCAL_API_KEY = 'abcd1234xyz5678...';
+4. Save the file
+
+5. Find lines 163-165 and REMOVE the // to uncomment:
+
+   CHANGE FROM:
+   // $smsResult = sendSMS_Textlocal($OWNER_PHONE, $smsMessage, $TEXTLOCAL_API_KEY, $TEXTLOCAL_SENDER);
+   // $smsSent = ($smsResult['code'] == 200);
+
+   CHANGE TO:
+   $smsResult = sendSMS_Textlocal($OWNER_PHONE, $smsMessage, $TEXTLOCAL_API_KEY, $TEXTLOCAL_SENDER);
+   $smsSent = ($smsResult['code'] == 200);
+
+6. Save the file
+
+STEP 4: TEST IT!
+----------------
+1. Go to your website
+2. Fill out the contact form
+3. Click "Send Message & Get SMS"
+4. You should receive SMS on 9893372352 within seconds!
+
+================================================================
+WHAT YOU GET WITH FREE TEXTLOCAL ACCOUNT
+================================================================
+
+✅ 20 FREE SMS credits (no credit card required)
+✅ Indian phone number support
+✅ Instant delivery (2-5 seconds)
+✅ Delivery reports
+✅ API access
+✅ No expiry on test credits
+✅ Professional sender ID support
+
+================================================================
+ALTERNATIVE FREE OPTIONS
+================================================================
+
+If you need more free SMS:
+
+1. FAST2SMS
+-----------
+Website: https://www.fast2sms.com/
+- Some free credits on signup
+- Popular in India
+- Easy setup
+
+2. TWILIO (Free Trial)
+----------------------
+Website: https://www.twilio.com/
+- $15 free trial credit (approx 150 SMS)
+- Very reliable
+- Global service
+
+3. MSG91 (Free Trial)
+---------------------
+Website: https://msg91.com/
+- Free trial credits
+- Popular in India
+- Good documentation
+
+================================================================
+COSTS AFTER FREE CREDITS (VERY AFFORDABLE)
+================================================================
+
+Textlocal Pricing:
+- ₹0.15 per SMS (15 paise only!)
+- Bulk packages: ₹500 = 5,000 SMS
+- No monthly fees
+
+Fast2SMS Pricing:
+- ₹0.20 per SMS
+- ₹200 = 1,000 SMS
+
+MSG91 Pricing:
+- ₹0.15 per SMS
+- ₹500 = 5,000 SMS
+
+================================================================
+CURRENT WORKING FEATURES (WITHOUT SMS)
+================================================================
+
+Even without SMS setup, your system currently:
+✅ Saves all inquiries to inquiries.txt
+✅ Sends email to info@badshahproperty.com
+✅ Shows confirmation to customers
+✅ Captures all customer details
+
+================================================================
+TROUBLESHOOTING
+================================================================
+
+If SMS not sending:
+1. Check API key is correct in send-sms.php
+2. Check lines 163-165 are uncommented
+3. Verify phone number format (9893372352)
+4. Check Textlocal dashboard for error logs
+5. Ensure WAMP/PHP curl extension is enabled
+
+Enable curl in WAMP:
+1. Open php.ini file
+2. Find: ;extension=curl
+3. Remove semicolon: extension=curl
+4. Restart WAMP server
+
+================================================================
+RECOMMENDED: START WITH TEXTLOCAL
+================================================================
+
+Textlocal is perfect for you because:
+✅ FREE 20 SMS to test
+✅ Made for Indian businesses
+✅ No credit card required
+✅ Simple 5-minute setup
+✅ Professional service
+✅ Very affordable after free credits
+
+================================================================
+QUICK START (5 MINUTES)
+================================================================
+
+1. Go to https://www.textlocal.in/ → Sign Up FREE
+2. Get your API key from dashboard
+3. Edit send-sms.php line 41 with your API key
+4. Uncomment lines 163-165 in send-sms.php
+5. Test with contact form
+6. Receive SMS on 9893372352!
+
+================================================================
+SUPPORT
+================================================================
+
+Textlocal Support:
+- Help: https://www.textlocal.in/help/
+- Email: support@textlocal.in
+- Phone: +91-11-45677677
+
+Your Backend Support:
+- All inquiries logged to: inquiries.txt
+- Check this file to see all form submissions
+
+================================================================
+
+

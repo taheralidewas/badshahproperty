@@ -1,0 +1,24 @@
+# ---- Credentials: never commit ----
+secrets.php
+
+# ---- Customer data (contains names, phone numbers, email addresses) ----
+inquiries.json
+inquiries.txt
+
+# ---- Logs ----
+php-errors.log
+*.log
+
+# ---- Editor / OS noise ----
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# ---- Temp / scratch ----
+_*.ps1
+_*.php
+*.bak
+*.tmp

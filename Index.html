@@ -1,0 +1,1025 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badshah Property | Agricultural Land Deals | Indore to Bhopal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <base target="_self">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1500382018108-844b52a33059?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            transition: background-image 1s ease-in-out;
+        }
+        
+        /* Fallback background colors */
+        @supports not (background-image: url()) {
+            .hero-bg {
+                background: linear-gradient(135deg, #2d5016, #4a7c59, #8b4513, #d2691e);
+            }
+        }
+        
+        /* Agricultural color scheme */
+        .agri-green { background-color: #2d5016; }
+        .agri-light-green { background-color: #4a7c59; }
+
+        /* The logo is mid-green grass artwork on a transparent background, so it
+           disappears against the dark .agri-green bar. The nav uses a warm cream
+           surface instead: light enough for the logo to read clearly, but tied to
+           the earthy palette rather than stark white. */
+        .nav-bar {
+            background-color: #f7f3e8;
+            border-bottom: 3px solid #2d5016;
+        }
+        .nav-mobile { background-color: #f2ead6; }
+        .agri-brown { background-color: #8b4513; }
+        .agri-orange { background-color: #d2691e; }
+        .agri-earth { background-color: #8b7355; }
+        .agri-cream { background-color: #f5f5dc; }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(139, 92, 0, 0.4);
+        }
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+        .pin-drop {
+            animation: pinDrop 1s ease-out forwards;
+        }
+        @keyframes pinDrop {
+            0% { transform: translateY(-100px); opacity: 0; }
+            70% { transform: translateY(10px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        /* Video background styling */
+        video {
+            pointer-events: none;
+        }
+        @media (max-aspect-ratio: 16/9) {
+            video {
+                width: auto;
+                height: 100%;
+            }
+        }
+        @media (min-aspect-ratio: 16/9) {
+            video {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body class="bg-amber-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="nav-bar text-green-900 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="images/logo.png" alt="Badshah Property Logo" class="h-14 w-auto mr-3" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <i class="fas fa-crown text-green-700 text-2xl mr-2" style="display: none;"></i>
+                        <span class="text-xl font-bold text-green-900">Badshah Property</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-green-900 font-medium hover:text-amber-800 transition-all">Home</a>
+                    <a href="#about" class="text-green-900 font-medium hover:text-amber-800 transition-all">About</a>
+                    <a href="#services" class="text-green-900 font-medium hover:text-amber-800 transition-all">Services</a>
+                    <a href="#listings" class="text-green-900 font-medium hover:text-amber-800 transition-all">Listings</a>
+                    <a href="#gallery" class="text-green-900 font-medium hover:text-amber-800 transition-all">Gallery</a>
+                    <a href="#contact" class="bg-amber-700 hover:bg-amber-800 text-white px-4 py-2 rounded-md transition-all">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-green-900 focus:outline-none" aria-label="Toggle navigation menu" aria-controls="mobile-menu" aria-expanded="false">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden nav-mobile border-t border-green-800 pb-4 px-4">
+            <a href="#" class="block py-2 text-green-900 font-medium hover:text-amber-800">Home</a>
+            <a href="#about" class="block py-2 text-green-900 font-medium hover:text-amber-800">About</a>
+            <a href="#services" class="block py-2 text-green-900 font-medium hover:text-amber-800">Services</a>
+            <a href="#listings" class="block py-2 text-green-900 font-medium hover:text-amber-800">Listings</a>
+            <a href="#gallery" class="block py-2 text-green-900 font-medium hover:text-amber-800">Gallery</a>
+            <a href="#contact" class="block py-2 text-green-900 font-medium hover:text-amber-800">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Video Background 1 - Local video with slow motion -->
+        <div id="video1" class="absolute inset-0 w-full h-full overflow-hidden" style="opacity: 1; transition: opacity 5s ease-in-out;">
+            <video 
+                autoplay 
+                muted 
+                playsinline
+                class="absolute top-1/2 left-1/2 w-full h-full object-cover"
+                style="transform: translate(-50%, -50%); pointer-events: none;"
+                id="bgVideo1">
+                <source src="videos/video1.mp4" type="video/mp4">
+                <!-- Fallback to YouTube if video not found -->
+                <iframe 
+                    src="https://www.youtube.com/embed/dzgsUWCxNSM?autoplay=1&mute=1&loop=1&playlist=dzgsUWCxNSM&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&quality=hd1080"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                    class="absolute top-1/2 left-1/2"
+                    style="width: 177.77vh; height: 56.25vw; min-height: 100vh; min-width: 100vw; transform: translate(-50%, -50%); pointer-events: none;">
+                </iframe>
+            </video>
+        </div>
+        
+        <!-- Video Background 2 - Local video with slow motion -->
+        <div id="video2" class="absolute inset-0 w-full h-full overflow-hidden" style="opacity: 0; transition: opacity 5s ease-in-out;">
+            <video 
+                muted 
+                playsinline
+                class="absolute top-1/2 left-1/2 w-full h-full object-cover"
+                style="transform: translate(-50%, -50%); pointer-events: none;"
+                id="bgVideo2">
+                <source src="videos/video2.mp4" type="video/mp4">
+                <!-- Fallback to YouTube if video not found -->
+                <iframe 
+                    src="https://www.youtube.com/embed/mnOUoAr4PCo?autoplay=1&mute=1&loop=1&playlist=mnOUoAr4PCo&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&quality=hd1080"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                    class="absolute top-1/2 left-1/2"
+                    style="width: 177.77vh; height: 56.25vw; min-height: 100vh; min-width: 100vw; transform: translate(-50%, -50%); pointer-events: none;">
+                </iframe>
+            </video>
+        </div>
+        
+        <!-- Video Background 3 - Local video with slow motion -->
+        <div id="video3" class="absolute inset-0 w-full h-full overflow-hidden" style="opacity: 0; transition: opacity 5s ease-in-out;">
+            <video 
+                muted 
+                playsinline
+                class="absolute top-1/2 left-1/2 w-full h-full object-cover"
+                style="transform: translate(-50%, -50%); pointer-events: none;"
+                id="bgVideo3">
+                <source src="videos/video3.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <!-- Dark overlay for better text readability -->
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+        
+        <!-- Content -->
+        <div class="text-center z-10 px-4 max-w-5xl mx-auto animate-fadeIn" style="animation: fadeIn 1.5s ease-in-out; position: relative; z-index: 2;">
+            <div class="mb-6">
+                <img src="images/logo.png" alt="Badshah Property Logo" class="h-80 w-auto mx-auto mb-4 animate-float" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <i class="fas fa-crown text-amber-400 text-6xl mb-4 animate-float" style="display: none;"></i>
+            </div>
+            <!-- <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-300 to-amber-100 bg-clip-text text-transparent">Badshah Property</h1> -->
+            <p class="text-2xl md:text-3xl mb-4 font-semibold">Premium Agricultural Land Deals</p>
+            <p class="text-lg md:text-xl mb-8 text-amber-100">Indore to Bhopal Region â€¢ 15+ Years Experience</p>
+            
+            <!-- Area Selection -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+                <h3 class="text-xl font-semibold mb-4">Find Properties by Area</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md transition-all transform hover:scale-105" onclick="filterByArea('indore')">Indore</button>
+                    <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md transition-all transform hover:scale-105" onclick="filterByArea('bhopal')">Bhopal</button>
+                    <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md transition-all transform hover:scale-105" onclick="filterByArea('dewas')">Dewas</button>
+                    <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md transition-all transform hover:scale-105" onclick="filterByArea('ujjain')">Ujjain</button>
+                    <button class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md transition-all transform hover:scale-105" onclick="filterByArea('all')">All Areas</button>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#listings" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg">View Best Properties</a>
+                <a href="#contact" class="bg-transparent border-2 border-white hover:bg-white hover:text-green-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">Get Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 relative overflow-hidden">
+        <!-- Background Map -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/dewas-map.jpg" alt="Dewas Map Background" class="w-full h-full object-cover opacity-20">
+        </div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 animate-slideInLeft" style="animation: slideInLeft 1s ease-out;">
+                <h2 class="text-3xl font-bold text-green-800 mb-6">About Badshah Property</h2>
+                <p class="text-lg mb-4">With over 15 years of experience in the real estate industry, Badshah Property has established itself as a trusted name in agricultural land and plot deals across the Indore to Bhopal region.</p>
+                <p class="text-lg mb-6">We specialize in connecting buyers with premium land opportunities that promise growth and prosperity. Our expertise covers agricultural land, residential plots, and commercial properties with complete legal support.</p>
+                <div class="flex items-center gap-4">
+                    <div class="bg-green-100 p-4 rounded-lg text-center">
+                        <p class="text-3xl font-bold text-amber-600">15+</p>
+                        <p class="text-green-800">Years Experience</p>
+                    </div>
+                    <div class="bg-green-100 p-4 rounded-lg text-center">
+                        <p class="text-3xl font-bold text-amber-600">500+</p>
+                        <p class="text-green-800">Happy Clients</p>
+                    </div>
+                    <div class="bg-green-100 p-4 rounded-lg text-center">
+                        <p class="text-3xl font-bold text-amber-600">1000+</p>
+                        <p class="text-green-800">Properties Sold</p>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 animate-slideInRight" style="animation: slideInRight 1s ease-out;">
+                <div class="space-y-4">
+                    <img src="images/dewas-map.jpg" alt="Dewas Map - Our Service Area" class="rounded-lg shadow-xl w-full">
+                    
+                    <!-- Interactive Map -->
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 agri-cream">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition-all card-hover">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-green-800">Agricultural Land Deals</h3>
+                    <p class="text-gray-600">Premium farmland with fertile soil and excellent irrigation facilities for your agricultural ventures.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition-all card-hover">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-green-800">Plot Sales</h3>
+                    <p class="text-gray-600">Residential and commercial plots in prime locations with clear titles and development potential.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition-all card-hover">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-green-800">Legal Support</h3>
+                    <p class="text-gray-600">Comprehensive documentation and legal assistance for smooth property transactions.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition-all card-hover">
+                    <div class="text-amber-600 text-4xl mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-green-800">Investment Consultancy</h3>
+                    <p class="text-gray-600">Expert advice on land investment opportunities with high growth potential.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Our Property Gallery</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Explore our diverse portfolio of agricultural lands, residential plots, and commercial properties across the Indore to Bhopal region.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 - Agricultural Land Plots -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg transition-all card-hover">
+                    <img src="images/agri-land-1.jpg" 
+                         alt="Agricultural Land Plots" 
+                         class="w-full h-64 object-cover transition-transform group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-lg font-semibold">Agricultural Land Plots</h3>
+                            <p class="text-sm">Divided plots ready for investment</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 - Open Farm Land -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg transition-all card-hover">
+                    <img src="images/agri-land-2.jpg" 
+                         alt="Open Farm Land" 
+                         class="w-full h-64 object-cover transition-transform group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-lg font-semibold">Open Farm Land</h3>
+                            <p class="text-sm">Spacious land with road access</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 - Green Fields -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg transition-all card-hover">
+                    <img src="images/agri-land-3.jpg" 
+                         alt="Green Fields" 
+                         class="w-full h-64 object-cover transition-transform group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-lg font-semibold">Green Fields</h3>
+                            <p class="text-sm">Fertile land ready for cultivation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 - Rice Paddy Fields -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg transition-all card-hover">
+                    <img src="images/agri-land-4.jpg" 
+                         alt="Rice Paddy Fields" 
+                         class="w-full h-64 object-cover transition-transform group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-lg font-semibold">Rice Paddy Fields</h3>
+                            <p class="text-sm">Irrigated agricultural land</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 - Farm Land View -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg transition-all card-hover">
+                    <img src="images/agri-land-5.jpg" 
+                         alt="Farm Land View" 
+                         class="w-full h-64 object-cover transition-transform group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-lg font-semibold">Farm Land View</h3>
+                            <p class="text-sm">Premium location with clear boundaries</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 - Agricultural Plot -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg transition-all card-hover">
+                    <img src="images/agri-land-6.jpg" 
+                         alt="Agricultural Plot" 
+                         class="w-full h-64 object-cover transition-transform group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-lg font-semibold">Agricultural Plot</h3>
+                            <p class="text-sm">Prime investment opportunity</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-block bg-green-800 hover:bg-green-900 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105">View All Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Listings Section -->
+    <section id="listings" class="py-20 px-4 max-w-7xl mx-auto agri-cream">
+        <h2 class="text-3xl font-bold text-center text-green-800 mb-12">Best Properties for Investment</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Discover our handpicked selection of premium properties with excellent growth potential and investment returns.</p>
+        
+        <div class="hs-carousel relative">
+            <div class="hs-carousel-body overflow-hidden">
+                <div class="hs-carousel-slides flex transition-transform duration-500">
+                    <!-- Listing 1 -->
+                    <div class="hs-carousel-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4" data-area="indore">
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all card-hover">
+                            <div class="relative h-48 overflow-hidden">
+                                <img src="images/agri-land-9.jpg" 
+                                     alt="Agricultural Land" class="w-full h-full object-cover">
+                                <div class="absolute top-2 right-2 bg-amber-600 text-white px-2 py-1 rounded text-sm">Featured</div>
+                                <div class="absolute top-2 left-2 bg-green-600 text-white px-2 py-1 rounded text-sm">Indore</div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-green-800 mb-2">15-Acre Farmland</h3>
+                                <p class="text-gray-600 mb-4">Premium agricultural land with tube well, road access, and fertile soil near Indore</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-amber-600">â‚¹35 Lakhs</span>
+                                    <a href="#contact" class="text-green-700 hover:text-green-900 font-medium">Contact Now â†’</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Listing 2 -->
+                    <div class="hs-carousel-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4" data-area="bhopal">
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all card-hover">
+                            <div class="relative h-48 overflow-hidden">
+                                <img src="images/agri-land-7.jpg" 
+                                     alt="Residential Plots" class="w-full h-full object-cover">
+                                <div class="absolute top-2 right-2 bg-amber-600 text-white px-2 py-1 rounded text-sm">Best Deal</div>
+                                <div class="absolute top-2 left-2 bg-green-600 text-white px-2 py-1 rounded text-sm">Bhopal</div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-green-800 mb-2">Residential Plots</h3>
+                                <p class="text-gray-600 mb-4">Premium plotted development near Bhopal with all approvals and amenities</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-amber-600">â‚¹18 Lakhs+</span>
+                                    <a href="#contact" class="text-green-700 hover:text-green-900 font-medium">Contact Now â†’</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Listing 3 -->
+                    <div class="hs-carousel-slide flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4" data-area="dewas">
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all card-hover">
+                            <div class="relative h-48 overflow-hidden">
+                                <img src="images/agri-land-8.jpg" 
+                                     alt="Commercial Plots" class="w-full h-full object-cover">
+                                <div class="absolute top-2 right-2 bg-amber-600 text-white px-2 py-1 rounded text-sm">New</div>
+                                <div class="absolute top-2 left-2 bg-green-600 text-white px-2 py-1 rounded text-sm">Dewas</div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-green-800 mb-2">Commercial Plots</h3>
+                                <p class="text-gray-600 mb-4">High-value commercial plots near Dewas with excellent visibility and road connectivity</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-amber-600">â‚¹45 Lakhs+</span>
+                                    <a href="#contact" class="text-green-700 hover:text-green-900 font-medium">Contact Now â†’</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="hs-carousel-prev absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md -ml-4">
+                <i class="fas fa-chevron-left text-green-800"></i>
+            </button>
+            <button class="hs-carousel-next absolute right-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md -mr-4">
+                <i class="fas fa-chevron-right text-green-800"></i>
+            </button>
+        </div>
+        
+        <div class="text-center mt-8">
+            <a href="#" class="inline-block bg-green-800 hover:bg-green-900 text-white px-6 py-3 rounded-md font-medium transition-all">View All Listings</a>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-amber-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-green-800 mb-12">What Our Clients Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Badshah Property helped me find the perfect farmland for my organic farming venture. Their team was professional and guided me through every step."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-bold text-green-800">Rajesh Kumar</p>
+                            <p class="text-sm text-gray-500">Farmer, Karnal</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"I invested in a commercial plot through Badshah Property and the returns have been excellent. Their market knowledge is impressive."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-bold text-green-800">Priya Sharma</p>
+                            <p class="text-sm text-gray-500">Investor, Chandigarh</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The legal team at Badshah Property made my land purchase completely hassle-free. I recommend them to anyone looking for agricultural land."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-bold text-green-800">Amit Singh</p>
+                            <p class="text-sm text-gray-500">Business Owner, Ludhiana</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 agri-green text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+                    <p class="mb-8">Ready to find your perfect land or plot? Contact us today for personalized assistance and expert guidance.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-amber-400 text-xl mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Office Address</h3>
+                                <p>Shivam Estate<br>Near Railway Station<br>Dewas, Madhya Pradesh</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-amber-400 text-xl mr-4 mt-1">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Phone</h3>
+                                <p>+91 9893372352<br>Available 9 AM - 7 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-amber-400 text-xl mr-4 mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Email</h3>
+                                <p><a href="mailto:info.badshahproperty@gmail.com" class="underline hover:text-amber-300">info.badshahproperty@gmail.com</a><br>Quick response guaranteed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form id="contactForm" class="bg-white p-6 rounded-lg shadow-lg text-gray-800">
+                        <h3 class="text-xl font-bold text-green-800 mb-4">Send Us a Message</h3>
+                        <p class="text-sm text-gray-600 mb-4">We'll send you an SMS confirmation and contact you within 24 hours.</p>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="+91 9876543210">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="email">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="area">Preferred Area</label>
+                            <select id="area" name="area" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="">Select Area</option>
+                                <option value="indore">Indore</option>
+                                <option value="bhopal">Bhopal</option>
+                                <option value="dewas">Dewas</option>
+                                <option value="ujjain">Ujjain</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="interest">I'm interested in</label>
+                            <select id="interest" name="interest" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="">Select Interest</option>
+                                <option value="agricultural-land">Agricultural Land</option>
+                                <option value="residential-plots">Residential Plots</option>
+                                <option value="commercial-plots">Commercial Plots</option>
+                                <option value="investment-consultation">Investment Consultation</option>
+                                <option value="property-valuation">Property Valuation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="budget">Budget Range</label>
+                            <select id="budget" name="budget" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="">Select Budget</option>
+                                <option value="10-25-lakhs">â‚¹10-25 Lakhs</option>
+                                <option value="25-50-lakhs">â‚¹25-50 Lakhs</option>
+                                <option value="50-100-lakhs">â‚¹50-100 Lakhs</option>
+                                <option value="100-lakhs-plus">â‚¹100 Lakhs+</option>
+                                <option value="not-sure">Not Sure</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Tell us about your requirements..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-md font-medium transition-all transform hover:scale-105">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                        
+                        <div id="formStatus" class="mt-4 text-center hidden"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="agri-green text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/logo.png" alt="Badshah Property Logo" class="h-8 w-auto mr-3" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <i class="fas fa-crown text-amber-400 text-2xl mr-2" style="display: none;"></i>
+                        <span class="text-xl font-bold">Badshah Property</span>
+                    </div>
+                    <p class="text-green-200">Your trusted partner for premium agricultural land and plot deals across Indore to Bhopal region.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-green-200 hover:text-amber-400 transition-all">Home</a></li>
+                        <li><a href="#about" class="text-green-200 hover:text-amber-400 transition-all">About Us</a></li>
+                        <li><a href="#services" class="text-green-200 hover:text-amber-400 transition-all">Services</a></li>
+                        <li><a href="#listings" class="text-green-200 hover:text-amber-400 transition-all">Listings</a></li>
+                        <li><a href="#gallery" class="text-green-200 hover:text-amber-400 transition-all">Gallery</a></li>
+                        <li><a href="#contact" class="text-green-200 hover:text-amber-400 transition-all">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-green-200 hover:text-amber-400 transition-all">Agricultural Land</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-amber-400 transition-all">Residential Plots</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-amber-400 transition-all">Commercial Plots</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-amber-400 transition-all">Legal Support</a></li>
+                        <li><a href="#" class="text-green-200 hover:text-amber-400 transition-all">Investment Advice</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-green-200 hover:text-amber-400 text-xl transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-green-200 hover:text-amber-400 text-xl transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-green-200 hover:text-amber-400 text-xl transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-green-200 hover:text-amber-400 text-xl transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="text-green-200">Subscribe to our newsletter</p>
+                    <div class="flex mt-2">
+                        <input type="email" placeholder="Your email" class="px-3 py-2 text-gray-800 rounded-l-md w-full">
+                        <button class="bg-amber-600 hover:bg-amber-700 px-4 rounded-r-md"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-green-700 mt-8 pt-8 text-center text-green-300">
+                <p>Â© 2023 Badshah Property. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set slow motion playback speed
+            const bgVideo1 = document.getElementById('bgVideo1');
+            const bgVideo2 = document.getElementById('bgVideo2');
+            const bgVideo3 = document.getElementById('bgVideo3');
+            const video1Container = document.getElementById('video1');
+            const video2Container = document.getElementById('video2');
+            const video3Container = document.getElementById('video3');
+            
+            let currentVideo = 1;
+            let isTransitioning = false;
+            
+            if (bgVideo1) {
+                bgVideo1.playbackRate = 0.5; // 50% speed = slow motion
+                
+                // When video 1 ends, fade to video 2
+                bgVideo1.addEventListener('ended', function() {
+                    if (!isTransitioning && currentVideo === 1) {
+                        isTransitioning = true;
+                        switchToVideo2();
+                    }
+                });
+            }
+            
+            if (bgVideo2) {
+                bgVideo2.playbackRate = 0.5; // 50% speed = slow motion
+                
+                // When video 2 ends, fade to video 3
+                bgVideo2.addEventListener('ended', function() {
+                    if (!isTransitioning && currentVideo === 2) {
+                        isTransitioning = true;
+                        switchToVideo3();
+                    }
+                });
+            }
+            
+            if (bgVideo3) {
+                bgVideo3.playbackRate = 0.5; // 50% speed = slow motion
+                
+                // When video 3 ends, fade to video 1
+                bgVideo3.addEventListener('ended', function() {
+                    if (!isTransitioning && currentVideo === 3) {
+                        isTransitioning = true;
+                        switchToVideo1();
+                    }
+                });
+            }
+            
+            function switchToVideo2() {
+                // Very slow fade out video 1, fade in video 2 (5 seconds)
+                video1Container.style.opacity = '0';
+                video2Container.style.opacity = '1';
+                video3Container.style.opacity = '0';
+                
+                currentVideo = 2;
+                
+                // Start playing video 2 from beginning
+                if (bgVideo2) {
+                    bgVideo2.currentTime = 0;
+                    bgVideo2.play();
+                }
+                
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 5000); // 5 second transition
+            }
+            
+            function switchToVideo3() {
+                // Very slow fade out video 2, fade in video 3 (5 seconds)
+                video1Container.style.opacity = '0';
+                video2Container.style.opacity = '0';
+                video3Container.style.opacity = '1';
+                
+                currentVideo = 3;
+                
+                // Start playing video 3 from beginning
+                if (bgVideo3) {
+                    bgVideo3.currentTime = 0;
+                    bgVideo3.play();
+                }
+                
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 5000); // 5 second transition
+            }
+            
+            function switchToVideo1() {
+                // Very slow fade out current video, fade in video 1 (5 seconds)
+                video1Container.style.opacity = '1';
+                video2Container.style.opacity = '0';
+                video3Container.style.opacity = '0';
+                
+                currentVideo = 1;
+                
+                // Start playing video 1 from beginning
+                if (bgVideo1) {
+                    bgVideo1.currentTime = 0;
+                    bgVideo1.play();
+                }
+                
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 5000); // 5 second transition
+            }
+            
+            // Mobile menu toggle
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    }
+                });
+            });
+            
+            // Simple carousel functionality
+            const carousel = document.querySelector('.hs-carousel-slides');
+            const slides = document.querySelectorAll('.hs-carousel-slide');
+            const slideWidth = slides[0].offsetWidth;
+            let currentSlide = 0;
+            
+            document.querySelector('.hs-carousel-next').addEventListener('click', function() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateCarousel();
+            });
+            
+            document.querySelector('.hs-carousel-prev').addEventListener('click', function() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                updateCarousel();
+            });
+            
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            }
+            
+            // Contact form submission with SMS functionality
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const formStatus = document.getElementById('formStatus');
+                const form = this;
+                
+                // PHP only runs when the page is served by a web server. If this
+                // file was opened directly from disk (file:///...), the relative
+                // fetch below resolves to a file path and fails with
+                // "Failed to fetch", so explain that instead of blaming the network.
+                if (location.protocol === 'file:') {
+                    formStatus.className = 'mt-4 text-center text-red-600';
+                    formStatus.classList.remove('hidden');
+                    formStatus.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i>' +
+                        'This page was opened directly from disk, so the form cannot run.' +
+                        '<br><small>Open it through WAMP instead: ' +
+                        '<a class="underline" href="http://localhost/Badshah%20Property/Index.html">' +
+                        'http://localhost/Badshah Property/Index.html</a></small>';
+                    return;
+                }
+                
+                // Show loading state
+                formStatus.className = 'mt-4 text-center text-blue-600';
+                formStatus.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending SMS and email...';
+                formStatus.classList.remove('hidden');
+                
+                // Send to PHP backend with Vonage SMS
+                fetch('send-sms.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: formData.get('name'),
+                        phone: formData.get('phone'),
+                        email: formData.get('email'),
+                        area: formData.get('area'),
+                        interest: formData.get('interest'),
+                        budget: formData.get('budget'),
+                        message: formData.get('message')
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Show success message
+                        formStatus.className = 'mt-4 text-center text-green-600';
+                        let msg = '<i class="fas fa-check-circle mr-2"></i>' + data.message;
+                        
+                        if (data.sms_sent) {
+                            msg += '<br><small>SMS delivered! Message ID: ' + data.sms_id + '</small>';
+                            if (data.remaining_balance) {
+                                msg += '<br><small>Remaining SMS balance: â‚¬' + data.remaining_balance + '</small>';
+                            }
+                        }
+                        
+                        formStatus.innerHTML = msg;
+                        
+                        // Reset form
+                        form.reset();
+                        
+                        // Hide status after 8 seconds
+                        setTimeout(() => {
+                            formStatus.classList.add('hidden');
+                        }, 8000);
+                    } else {
+                        // Show error message
+                        formStatus.className = 'mt-4 text-center text-red-600';
+                        formStatus.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i>' + data.message;
+                    }
+                })
+                .catch(error => {
+                    console.error('Contact form error:', error);
+                    formStatus.className = 'mt-4 text-center text-red-600';
+
+                    // "Failed to fetch" means the request never reached the server
+                    // (server stopped, wrong URL, offline, or a blocking extension).
+                    const unreachable = error instanceof TypeError;
+                    const detail = unreachable
+                        ? 'Could not reach the server at ' + location.origin +
+                          '. Check that WAMP/Apache is running.'
+                        : error.message;
+
+                    formStatus.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i>' +
+                        'Could not send your message. Please call us directly at 9893372352' +
+                        '<br><small>' + detail + '</small>';
+                });
+            });
+            
+            // Intersection Observer for animations
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.animate-slideInLeft, .animate-slideInRight, .animate-fadeIn');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animationPlayState = 'running';
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                
+                elements.forEach(element => {
+                    element.style.animationPlayState = 'paused';
+                    observer.observe(element);
+                });
+            };
+            
+            animateOnScroll();
+        });
+        
+        // Area filtering function
+        function filterByArea(area) {
+            const slides = document.querySelectorAll('.hs-carousel-slide');
+            const carousel = document.querySelector('.hs-carousel-slides');
+            
+            slides.forEach(slide => {
+                if (area === 'all' || slide.dataset.area === area) {
+                    slide.style.display = 'block';
+                } else {
+                    slide.style.display = 'none';
+                }
+            });
+            
+            // Reset carousel position
+            carousel.style.transform = 'translateX(0px)';
+            
+            // Update button states
+            document.querySelectorAll('[onclick^="filterByArea"]').forEach(btn => {
+                btn.classList.remove('bg-amber-700');
+                btn.classList.add('bg-amber-600');
+            });
+            
+            event.target.classList.remove('bg-amber-600');
+            event.target.classList.add('bg-amber-700');
+            
+            // Scroll to listings section
+            document.getElementById('listings').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
